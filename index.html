@@ -2,339 +2,475 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="New Creation Community Church — Dover, PA. Service times, ministries, events, watch online, give, and contact." />
   <title>New Creation Community Church</title>
-  <meta name="description" content="Service times, location, ministries, events, watch online, and giving for New Creation Community Church in Dover, PA." />
-  <meta name="theme-color" content="#ffffff" />
 
   <style>
     :root{
-      --bg:#ffffff;
-      --text:#111111;
-      --muted:#444444;
-      --border:#e6e6e6;
-      --card:#fafafa;
-      --shadow: 0 10px 30px rgba(0,0,0,0.06);
-      --radius: 18px;
-      --radius-sm: 12px;
-      --maxw: 1100px;
+      --bg0:#0b1220;
+      --bg1:#0f1b33;
+      --card: rgba(255,255,255,.92);
+      --card2: rgba(255,255,255,.80);
+      --text:#0c1220;
+      --muted:#51607a;
+      --brand:#2d6cdf;
+      --brand2:#35c1c9;
+      --accent:#f2b94b;
+      --line: rgba(18, 30, 56, .14);
+      --shadow: 0 10px 30px rgba(0,0,0,.22);
+      --radius: 16px;
+      --max: 1120px;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       color:var(--text);
-      background:var(--bg);
-      line-height:1.45;
-    }
-    a{color:inherit}
-    .container{width:min(var(--maxw), calc(100% - 40px)); margin:0 auto;}
-
-    .skip-link{
-      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
-    }
-    .skip-link:focus{
-      left:10px; top:10px; width:auto; height:auto;
-      padding:10px 12px; background:#fff; border:1px solid #000; z-index:9999;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.55;
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(45,108,223,.35), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(53,193,201,.25), transparent 55%),
+        radial-gradient(900px 700px at 30% 110%, rgba(242,185,75,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      min-height:100vh;
     }
 
-    header{
-      position:sticky; top:0; z-index:50;
-      background:rgba(255,255,255,0.92);
-      border-bottom:1px solid var(--border);
-      backdrop-filter:saturate(180%) blur(10px);
+    /* subtle texture */
+    body:before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background-image:
+        radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 18px 18px;
+      opacity:.35;
+      mix-blend-mode: overlay;
     }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:10px 0;
+
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .skip{
+      position:absolute; left:-999px; top:auto;
+      width:1px; height:1px; overflow:hidden;
     }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      text-decoration:none;
-      min-width: 210px;
-    }
-    .logo-mark{
-      width:38px; height:38px;
-      border:2px solid #000;
+    .skip:focus{
+      left:16px; top:16px; width:auto; height:auto;
+      padding:10px 12px;
+      background:var(--accent);
+      color:#111;
       border-radius:10px;
-      display:grid; place-items:center;
-      font-weight:900;
-      font-size:14px;
-      line-height:1;
-    }
-    /* denominational logo styles */
-    .denom-logo{
-      width:44px;
-      height:44px;
-      object-fit:contain;
-      border-radius:8px;
-      display:inline-block;
-      vertical-align:middle;
-    }
-    .footer-logo{ width:28px; height:28px; margin-right:8px; vertical-align:middle; }
-
-    .brand-text{display:flex; flex-direction:column}
-    .brand-text strong{font-size:14px; letter-spacing:0.2px}
-    .brand-text span{font-size:12px; color:var(--muted)}
-
-    nav.links{display:flex; align-items:center; gap:10px}
-    nav.links a{
+      z-index:9999;
       text-decoration:none;
-      font-size:13.5px;
+    }
+
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; position:relative; }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:1000;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.70);
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0;
+      gap:14px;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 220px;
+    }
+    .brand img{
+      width:44px; height:44px;
+      border-radius:12px;
+      object-fit:contain;
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.15);
+      box-shadow: 0 6px 18px rgba(0,0,0,.25);
+    }
+    .brand .name{
+      color:#fff;
+      font-weight:700;
+      letter-spacing:.2px;
+      line-height:1.15;
+      font-size:16px;
+    }
+    .brand .sub{
+      display:block;
+      font-weight:500;
+      color: rgba(255,255,255,.70);
+      font-size:12.5px;
+      margin-top:2px;
+    }
+
+    nav{ display:flex; align-items:center; gap:10px; }
+    .navlinks{
+      display:flex; gap:6px; align-items:center;
+    }
+    .navlinks a{
+      color: rgba(255,255,255,.86);
       padding:8px 10px;
       border-radius:10px;
+      font-weight:600;
+      font-size:13px;
+      text-decoration:none;
       white-space:nowrap;
     }
-    nav.links a:hover{background:var(--card)}
+    .navlinks a:hover{
+      background: rgba(255,255,255,.10);
+      text-decoration:none;
+    }
 
-    .btn{
+    .cta{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px;
+      padding:9px 12px;
       border-radius:12px;
-      border:1px solid #000;
-      text-decoration:none;
-      font-weight:700;
-      font-size:13.5px;
-      cursor:pointer;
-      background:transparent;
-      gap:8px;
-    }
-    .btn.primary{background:#000; color:#fff;}
-    .btn.small{padding:8px 12px; font-size:13px}
-    .btn:hover{transform: translateY(-1px)}
-    .btn:active{transform:none}
-
-    .mobile-toggle{
-      display:none;
-      border:1px solid #000;
-      background:transparent;
-      border-radius:10px;
-      padding:8px 10px;
       font-weight:800;
-    }
-    .drawer{
-      display:none;
-      border-top:1px solid var(--border);
-      padding:10px 0 14px 0;
-    }
-    .drawer a{
-      display:block;
-      padding:10px 0;
+      font-size:13px;
+      color:#07101e;
+      background: linear-gradient(90deg, var(--accent), #ffd889);
+      box-shadow: 0 10px 24px rgba(242,185,75,.18);
+      border: 1px solid rgba(255,255,255,.22);
       text-decoration:none;
-      border-bottom:1px solid var(--border);
     }
-    .drawer a:last-child{border-bottom:none}
-    .drawer .btn{width:100%; margin-top:10px}
-    .drawer.show{display:block}
+    .cta:hover{ filter:brightness(1.02); text-decoration:none; }
 
-    .hero{
-      padding:64px 0 30px 0;
-      background:
-        radial-gradient(900px 500px at 20% 10%, rgba(0,0,0,0.06), transparent 60%),
-        radial-gradient(700px 450px at 80% 30%, rgba(0,0,0,0.04), transparent 60%),
-        linear-gradient(#ffffff, #f7f8fa);
-      border-bottom:1px solid var(--border);
+    .menuBtn{
+      display:none;
+      padding:9px 12px;
+      border-radius:12px;
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.15);
+      color:#fff;
+      font-weight:800;
+      cursor:pointer;
     }
-    .hero-grid{
+
+    /* Hero */
+    .hero{
+      padding:42px 0 10px;
+    }
+    .heroCard{
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.84));
+      border:1px solid rgba(255,255,255,.16);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .heroInner{
+      padding:26px 22px;
       display:grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap:28px;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
       align-items:start;
     }
     .kicker{
-      font-size:12px;
-      color:var(--muted);
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      color:#0b1a33;
+      font-weight:800;
+      font-size:12.5px;
+      letter-spacing:.25px;
       text-transform:uppercase;
-      letter-spacing:0.12em;
+      background: rgba(45,108,223,.10);
+      border: 1px solid rgba(45,108,223,.18);
+      padding:6px 10px;
+      border-radius:999px;
     }
     h1{
-      margin:10px 0 10px 0;
-      font-size:40px;
+      margin:12px 0 8px;
+      font-size:34px;
+      letter-spacing:-.6px;
       line-height:1.12;
     }
     .lead{
-      font-size:16px;
-      color:var(--muted);
-      max-width:60ch;
+      margin:0;
+      color: #26324a;
+      font-weight:600;
+      font-size:15.5px;
     }
+
+    .pillRow{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin:16px 0 0;
+    }
+    .pill{
+      background: rgba(53,193,201,.10);
+      border: 1px solid rgba(53,193,201,.18);
+      color:#0b2b31;
+      font-weight:800;
+      font-size:12.5px;
+      padding:7px 10px;
+      border-radius:999px;
+    }
+
+    .heroAside{
+      background: rgba(11,18,32,.06);
+      border: 1px solid rgba(11,18,32,.10);
+      border-radius: 14px;
+      padding:14px 14px 12px;
+    }
+    .heroAside h3{
+      margin:0 0 8px;
+      font-size:13px;
+      letter-spacing:.2px;
+      text-transform:uppercase;
+      color:#0b1a33;
+    }
+    .mini{
+      margin:0;
+      color:#33415f;
+      font-weight:700;
+      font-size:13.5px;
+    }
+    .mini span{ color: var(--muted); font-weight:700; }
     .actions{
-      display:flex;
-      gap:12px;
-      margin-top:18px;
-      flex-wrap:wrap;
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:14px;
     }
-
-    .card{
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:16px;
-      background:var(--card);
-      box-shadow: var(--shadow);
-    }
-    .card.white{
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(18,30,56,.14);
       background:#fff;
+      font-weight:800;
+      font-size:13px;
+      text-decoration:none;
+      color:#0b1220;
     }
-    .card h3{margin:0 0 8px 0; font-size:16px}
-    .meta{font-size:12.5px; color:var(--muted); margin-bottom:12px}
-    .divider{height:1px; background:var(--border); margin:10px 0}
-    .note{font-size:12px; color:var(--muted); margin-top:10px}
+    .btn.primary{
+      background: linear-gradient(90deg, var(--brand), var(--brand2));
+      color:#fff;
+      border:none;
+      box-shadow: 0 12px 26px rgba(45,108,223,.18);
+    }
+    .btn:hover{ text-decoration:none; filter:brightness(1.01); }
 
-    .section{
-      padding:40px 0;
-      border-top:1px solid var(--border);
-    }
-    .section h2{margin:0 0 10px 0; font-size:22px}
-    .section p{margin:0 0 10px 0; color:var(--muted)}
-    .split{
+    /* Sections */
+    main{ padding:18px 0 54px; }
+
+    .grid{
       display:grid;
-      grid-template-columns:1fr 1fr;
+      grid-template-columns: repeat(12, 1fr);
       gap:14px;
-      margin-top:12px;
+      margin-top:14px;
+    }
+    .card{
+      grid-column: span 12;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .hd{
+      padding:16px 18px 12px;
+      border-bottom:1px solid var(--line);
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .card h2{
+      margin:0;
+      font-size:18px;
+      letter-spacing:-.2px;
+    }
+    .tag{
+      font-size:12px;
+      font-weight:900;
+      color: rgba(11,18,32,.70);
+      background: rgba(11,18,32,.06);
+      border:1px solid rgba(11,18,32,.10);
+      padding:5px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    .card .bd{ padding:14px 18px 18px; }
+    .muted{ color: var(--muted); font-weight:650; }
+
+    .twoCol{
+      display:grid; gap:12px;
+      grid-template-columns: 1fr 1fr;
+      align-items:start;
     }
     .list{
-      margin:10px 0 0 0;
+      margin:10px 0 0;
       padding-left:18px;
-      color:var(--muted);
     }
-    .list li{margin:6px 0}
+    .list li{ margin:6px 0; }
 
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-      margin-top:12px;
+    .infoBox{
+      background: var(--card2);
+      border:1px solid rgba(18,30,56,.12);
+      border-radius: 14px;
+      padding:12px 12px 10px;
     }
+    .infoBox .row{
+      display:flex; flex-direction:column;
+      gap:6px;
+      font-weight:750;
+      color:#1b2741;
+      font-size:13.5px;
+    }
+    .infoBox a{ text-decoration:underline; }
 
-    .events{
+    /* Forms */
+    form{
       display:grid;
       gap:10px;
-      margin-top:12px;
+      margin-top:10px;
     }
-    .event{
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:14px;
-      background:#fff;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      box-shadow: var(--shadow);
+    label{
+      font-weight:800;
+      font-size:12.5px;
+      color:#1b2741;
     }
-    .event .left{display:flex; flex-direction:column; gap:3px;}
-    .event .date{font-weight:900;}
-    .event .desc{color:var(--muted); font-size:13px;}
-
-    .pill-row{margin-top:10px}
-    .pill{
-      display:inline-block;
-      font-size:12px;
-      border:1px solid var(--border);
-      padding:6px 10px;
-      border-radius:999px;
-      background:#fff;
-      margin-right:8px;
-      margin-top:6px;
-      color:var(--muted);
-    }
-
-    footer{
-      padding:26px 0 40px 0;
-      border-top:1px solid var(--border);
-    }
-    .footer-grid{
-      display:grid;
-      grid-template-columns:1.3fr 0.7fr 0.7fr;
-      gap:16px;
-    }
-    footer small{color:var(--muted)}
-    footer a{text-decoration:none}
-    footer a:hover{text-decoration:underline}
-
-    .form input, .form textarea{
+    input, textarea{
       width:100%;
-      padding:10px;
+      padding:10px 12px;
       border-radius:12px;
-      border:1px solid var(--border);
-      font: inherit;
+      border:1px solid rgba(18,30,56,.18);
       background:#fff;
+      font: inherit;
+      font-weight:650;
+      color:#0b1220;
+      outline:none;
     }
-    .form textarea{resize:vertical}
+    textarea{ min-height:110px; resize:vertical; }
 
-    @media (max-width: 920px){
-      .hero-grid{grid-template-columns:1fr}
-      .split{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr}
-      .footer-grid{grid-template-columns:1fr}
-      h1{font-size:34px}
+    .formNote{
+      font-size:12.5px;
+      color: var(--muted);
+      font-weight:650;
+      margin-top:6px;
     }
-    @media (max-width: 760px){
-      nav.links{display:none}
-      .mobile-toggle{display:inline-flex}
-      .brand{min-width: unset}
-      .denom-logo{ width:34px; height:34px; }
+
+    /* Footer */
+    footer{
+      margin-top:18px;
+      padding:28px 0 38px;
+      color: rgba(255,255,255,.82);
+    }
+    .footGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+    .footTitle{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900;
+      color:#fff;
+      margin:0 0 6px;
+    }
+    .footTitle img{
+      width:34px; height:34px;
+      border-radius:10px;
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.15);
+      object-fit:contain;
+    }
+    .small{
+      font-size:13px;
+      color: rgba(255,255,255,.72);
+      font-weight:650;
+      margin:6px 0 0;
+    }
+    .footLinks{
+      display:grid; gap:8px;
+      align-content:start;
+    }
+    .footLinks a{
+      color: rgba(255,255,255,.86);
+      font-weight:800;
+      text-decoration:none;
+    }
+    .footLinks a:hover{ text-decoration:underline; }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .heroInner{ grid-template-columns: 1fr; }
+      .twoCol{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 780px){
+      .navlinks{ display:none; }
+      .menuBtn{ display:inline-flex; }
+      .navlinks.open{
+        display:flex;
+        position:absolute;
+        left:18px; right:18px;
+        top:64px;
+        flex-direction:column;
+        gap:6px;
+        padding:10px;
+        border-radius:14px;
+        background: rgba(11,18,32,.92);
+        border:1px solid rgba(255,255,255,.12);
+      }
+      .navlinks.open a{
+        background: rgba(255,255,255,.08);
+      }
     }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip" href="#main">Skip to content</a>
 
   <header>
-    <div class="container">
-      <div class="nav" role="navigation" aria-label="Primary">
-        <a class="brand" href="#top">
-          <img src="/logo.png" alt="Denominational logo" class="denom-logo" />
-          <div class="brand-text">
-            <strong>New Creation</strong>
-            <span>Community Church</span>
+    <div class="wrap">
+      <div class="topbar">
+        <a class="brand" href="#top" aria-label="New Creation Community Church home">
+          <!-- LOGO FIX:
+               Put your logo at: /new-creation-site/assets/logo.png
+               OR change the src below to your real path/filename. -->
+          <img id="brandLogo" src="./assets/logo.png" alt="New Creation Community Church logo" />
+          <div>
+            <div id="brandText" class="name">New Creation Community Church
+              <span class="sub">Dover, Pennsylvania</span>
+            </div>
           </div>
         </a>
 
-        <nav class="links" aria-label="Site">
-          <a href="#plan">Plan a Visit</a>
-          <a href="#ministries">Ministries</a>
-          <a href="#events">Events</a>
-          <a href="#watch">Watch</a>
-          <a href="#give">Give</a>
-          <a href="#contact">Contact</a>
+        <nav aria-label="Primary">
+          <button class="menuBtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navlinks">Menu</button>
+          <div class="navlinks" id="navlinks">
+            <a href="#visit">Plan a Visit</a>
+            <a href="#ministries">Ministries</a>
+            <a href="#events">Events</a>
+            <a href="#watch">Watch</a>
+            <a href="#give">Give</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <a class="cta" href="#visit">Plan a Visit</a>
         </nav>
-
-        <div>
-          <a class="btn primary" href="#plan">Plan a Visit</a>
-          <button class="mobile-toggle" type="button" data-toggle aria-expanded="false" aria-controls="mobile-menu">Menu</button>
-        </div>
-      </div>
-
-      <div id="mobile-menu" class="drawer" data-drawer>
-        <a href="#plan">Plan a Visit</a>
-        <a href="#ministries">Ministries</a>
-        <a href="#events">Events</a>
-        <a href="#watch">Watch</a>
-        <a href="#give">Give</a>
-        <a href="#contact">Contact</a>
-        <a class="btn primary" href="#plan">Plan a Visit</a>
       </div>
     </div>
   </header>
 
-  <main id="main">
-    <div id="top"></div>
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-grid">
+  <div id="top" class="hero">
+    <div class="wrap">
+      <section class="heroCard" aria-label="Welcome">
+        <div class="heroInner">
           <div>
-            <div class="kicker">Welcome</div>
+            <span class="kicker">Welcome</span>
             <h1>New Creation Community Church</h1>
             <p class="lead">
-              Join us this Sunday. Traditional service at <strong>8:00 AM</strong> and contemporary service at <strong>10:30 AM</strong>.
-              Sunday School at <strong>9:15 AM</strong> for adults and children.
+              Join us this Sunday. Traditional service at <strong>8:00 AM</strong> and contemporary service at
+              <strong>10:30 AM</strong>. Sunday School at <strong>9:15 AM</strong> for adults and children.
               We are located at <strong>3005 Emig Mill Road, Dover PA 17315</strong>.
             </p>
 
-            <div class="pill-row" aria-label="Highlights">
+            <div class="pillRow" aria-label="Highlights">
               <span class="pill">GriefShare</span>
               <span class="pill">Men’s Alliance</span>
               <span class="pill">Worship Sundays</span>
@@ -342,303 +478,346 @@
             </div>
 
             <div class="actions">
-              <a class="btn primary" href="#plan">Plan a Visit</a>
+              <a class="btn primary" href="#visit">Let us know you’re coming</a>
               <a class="btn" href="#watch">Watch Online</a>
               <a class="btn" href="#give">Give</a>
             </div>
           </div>
 
-          <aside class="card white" aria-label="Quick details">
+          <aside class="heroAside" aria-label="Service times and contact">
             <h3>Service times</h3>
-            <div class="meta"><strong>8:00 AM</strong> Traditional</div>
-            <div class="meta"><strong>9:15 AM</strong> Sunday School (adults and children)</div>
-            <div class="meta"><strong>10:30 AM</strong> Contemporary</div>
-            <div class="divider"></div>
+            <p class="mini">8:00 AM <span>Traditional</span></p>
+            <p class="mini">9:15 AM <span>Sunday School (adults and children)</span></p>
+            <p class="mini">10:30 AM <span>Contemporary</span></p>
 
-            <h3 style="margin-top:0">Contact</h3>
-            <div class="meta"><strong>Phone</strong>: 717-764-0252</div>
-            <div class="meta"><strong>Email</strong>: newcreation25@comcast.net</div>
-            <div class="meta"><strong>Address</strong>: 3005 Emig Mill Road, Dover PA 17315</div>
-            <div class="divider"></div>
+            <h3 style="margin-top:14px;">Contact</h3>
+            <p class="mini">Phone: <span><a href="tel:17177640252">717-764-0252</a></span></p>
+            <p class="mini">Email: <span><a href="mailto:newcreation25@comcast.net">newcreation25@comcast.net</a></span></p>
+            <p class="mini">Address: <span>3005 Emig Mill Road, Dover PA 17315</span></p>
 
-            <a class="btn primary" href="#plan">Let us know you’re coming</a>
-            <div class="note">Streaming: YouTube (8:00 AM) and YouTube + Facebook (10:30 AM).</div>
+            <p class="formNote" style="margin-top:10px;">
+              Streaming: YouTube (8:00 AM) and YouTube + Facebook (10:30 AM).
+            </p>
           </aside>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
+  </div>
 
-    <!-- WHAT TO EXPECT -->
-    <section class="section" id="expect">
-      <div class="container">
-        <h2>What to expect</h2>
-        <p>Clear, simple, and welcoming. If it’s your first time, you’re invited and you’ll know exactly where to go.</p>
+  <main id="main" class="wrap">
+    <div class="grid">
 
-        <div class="grid-3">
-          <div class="card white">
-            <h3>Arrive</h3>
-            <p>Park on-site and come through the main entrance. Dress is casual.</p>
+      <section id="expect" class="card" aria-label="What to expect">
+        <div class="hd">
+          <h2>What to expect</h2>
+          <span class="tag">Clear and welcoming</span>
+        </div>
+        <div class="bd twoCol">
+          <div>
+            <p class="muted">Clear, simple, and welcoming. If it’s your first time, you’re invited and you’ll know exactly where to go.</p>
+            <ul class="list">
+              <li><strong>Arrive:</strong> Park on-site and come through the main entrance. Dress is casual.</li>
+              <li><strong>Worship:</strong> Traditional service at 8:00 AM and contemporary service at 10:30 AM.</li>
+              <li><strong>Connect:</strong> Support ministries, groups, and opportunities to serve the community.</li>
+            </ul>
           </div>
-          <div class="card white">
-            <h3>Worship</h3>
-            <p>Traditional service at 8:00 AM and contemporary service at 10:30 AM.</p>
-          </div>
-          <div class="card white">
-            <h3>Connect</h3>
-            <p>Support ministries, groups, and opportunities to serve the community.</p>
+          <div class="infoBox">
+            <div class="row">
+              <div><strong>Address:</strong> 3005 Emig Mill Road, Dover PA 17315</div>
+              <div><strong>Phone:</strong> <a href="tel:17177640252">717-764-0252</a></div>
+              <div><strong>Email:</strong> <a href="mailto:newcreation25@comcast.net">newcreation25@comcast.net</a></div>
+              <div><strong>Tip:</strong> If you want a “Get Directions” button, we can add it.</div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- PLAN A VISIT -->
-    <section class="section" id="plan">
-      <div class="container">
-        <h2>Plan a Visit</h2>
-        <p>If you’d like, send a quick message and someone will follow up with directions and details.</p>
+      <section id="visit" class="card" aria-label="Plan a Visit">
+        <div class="hd">
+          <h2>Plan a Visit</h2>
+          <span class="tag">Quick message</span>
+        </div>
+        <div class="bd twoCol">
+          <div>
+            <p class="muted">If you’d like, send a quick message and someone will follow up with directions and details.</p>
+            <p class="muted"><strong>Message us</strong></p>
+            <p class="muted">Working form is optional. This version is safe and self-contained.</p>
 
-        <div class="split">
-          <div class="card white">
-            <h3>Location</h3>
-            <p><strong>3005 Emig Mill Road, Dover PA 17315</strong></p>
-
-            <div style="position:relative; height:320px; border:1px solid var(--border); border-radius:14px; overflow:hidden; background:#fff">
-              <iframe
-                title="Map"
-                style="width:100%; height:100%; border:0"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=3005%20Emig%20Mill%20Road%20Dover%20PA%2017315&output=embed"></iframe>
-            </div>
-
-            <div class="note">If you want a “Get Directions” button, we can add it.</div>
-          </div>
-
-          <div class="card white">
-            <h3>Message us</h3>
-            <p class="meta">Working form is optional. This version is safe and self-contained.</p>
-
-            <div class="note" style="margin-top:0">
-              Call: <strong>717-764-0252</strong><br/>
-              Email: <strong>newcreation25@comcast.net</strong>
-            </div>
-
-            <div class="divider"></div>
-
-            <form class="form" onsubmit="return false;">
-              <label>Name<br/><input name="name" placeholder="Your name" /></label><br/><br/>
-              <label>Email<br/><input name="email" type="email" placeholder="you@example.com" /></label><br/><br/>
-              <label>Question (optional)<br/><textarea name="q" rows="4" placeholder="Anything you’d like to ask?"></textarea></label><br/><br/>
+            <form action="#" method="post" onsubmit="return false;">
+              <div>
+                <label for="visitName">Name</label>
+                <input id="visitName" name="name" autocomplete="name" placeholder="Your name" />
+              </div>
+              <div>
+                <label for="visitEmail">Email</label>
+                <input id="visitEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+              </div>
+              <div>
+                <label for="visitQ">Question (optional)</label>
+                <textarea id="visitQ" name="question" placeholder="Anything you want us to know?"></textarea>
+              </div>
               <button class="btn primary" type="submit">Submit</button>
-              <div class="note">This is a placeholder. If you want it to send, swap in Formspree in one line.</div>
+              <div class="formNote">
+                This is a placeholder. If you want it to send, swap in Formspree in one line.
+              </div>
             </form>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- MINISTRIES -->
-    <section class="section" id="ministries">
-      <div class="container">
-        <h2>Ministries</h2>
-        <p>Key ministries we want to highlight clearly, with simple calls to action.</p>
-
-        <div class="split">
-          <div class="card white">
-            <h3>GriefShare</h3>
-            <p>Support and encouragement for those walking through loss.</p>
-            <div class="meta"><strong>Typical format</strong>: 13-week sessions • <strong>Thursdays</strong> 3:30–5:00 PM • <strong>Cost</strong>: $20 (scholarships available)</div>
-            <a class="btn primary" href="#contact">Request info</a>
-          </div>
-
-          <div class="card white">
-            <h3>DivorceCare</h3>
-            <p>A Christ-centered program for those experiencing separation or divorce.</p>
-            <div class="meta"><strong>Status</strong>: Not currently offered (we can help you find a nearby group).</div>
-            <a class="btn primary" href="https://www.divorcecare.org/" target="_blank" rel="noreferrer">Find a group</a>
-          </div>
-        </div>
-
-        <div style="height:14px"></div>
-
-        <div class="card white">
-          <h3>Men’s Alliance</h3>
-          <p>Brotherhood, growth, and accountability in a welcoming group.</p>
-          <div class="meta"><strong>Meets</strong>: Tuesdays at 6:30 PM • Outdoor workout + devotional</div>
-          <a class="btn primary" href="#contact">Join us</a>
-        </div>
-
-        <div class="note">
-          Next iteration: add a “Serve” section and a simple “Newsletter Signup” (replacing PDF-first newsletters).
-        </div>
-      </div>
-    </section>
-
-    <!-- EVENTS -->
-    <section class="section" id="events">
-      <div class="container">
-        <h2>Events</h2>
-        <p>Recommended: a single calendar source of truth (Google Calendar). This section is ready for an embed.</p>
-
-        <div class="events">
-          <div class="event">
-            <div class="left">
-              <div class="date">[MMM DD]</div>
-              <div class="name">[Event Name]</div>
-              <div class="desc">[One line description]</div>
+          <div class="infoBox">
+            <div class="row">
+              <div><strong>Call:</strong> <a href="tel:17177640252">717-764-0252</a></div>
+              <div><strong>Email:</strong> <a href="mailto:newcreation25@comcast.net">newcreation25@comcast.net</a></div>
+              <div><strong>Location:</strong> 3005 Emig Mill Road, Dover PA 17315</div>
             </div>
-            <div><a class="btn small" href="#contact">Details</a></div>
           </div>
-          <div class="event">
-            <div class="left">
-              <div class="date">[MMM DD]</div>
-              <div class="name">[Event Name]</div>
-              <div class="desc">[One line description]</div>
+        </div>
+      </section>
+
+      <section id="ministries" class="card" aria-label="Ministries">
+        <div class="hd">
+          <h2>Ministries</h2>
+          <span class="tag">Get connected</span>
+        </div>
+        <div class="bd">
+          <p class="muted">Key ministries we want to highlight clearly, with simple calls to action.</p>
+
+          <div class="twoCol">
+            <div class="infoBox">
+              <div class="row">
+                <div><strong>GriefShare</strong></div>
+                <div class="muted">Support and encouragement for those walking through loss.</div>
+                <div class="muted">Typical format: 13-week sessions • Thursdays 3:30–5:00 PM • Cost: $20 (scholarships available)</div>
+                <a class="btn" href="#contact">Request info</a>
+              </div>
             </div>
-            <div><a class="btn small" href="#contact">Details</a></div>
+
+            <div class="infoBox">
+              <div class="row">
+                <div><strong>DivorceCare</strong></div>
+                <div class="muted">A Christ-centered program for those experiencing separation or divorce.</div>
+                <div class="muted">Status: Not currently offered (we can help you find a nearby group).</div>
+                <a class="btn" href="https://www.divorcecare.org/" target="_blank" rel="noopener">Find a group</a>
+              </div>
+            </div>
+
+            <div class="infoBox">
+              <div class="row">
+                <div><strong>Men’s Alliance</strong></div>
+                <div class="muted">Brotherhood, growth, and accountability in a welcoming group.</div>
+                <div class="muted">Meets: Tuesdays at 6:30 PM • Outdoor workout + devotional</div>
+                <a class="btn" href="#visit">Join us</a>
+              </div>
+            </div>
+
+            <div class="infoBox">
+              <div class="row">
+                <div><strong>Next iteration</strong></div>
+                <div class="muted">Add a “Serve” section and a simple “Newsletter Signup” (replacing PDF-first newsletters).</div>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="note">When you get the church’s Google Calendar ID, replace this list with a live embed.</div>
-      </div>
-    </section>
-
-    <!-- WATCH -->
-    <section class="section" id="watch">
-      <div class="container">
-        <h2>Watch Online</h2>
-        <p>Join live or watch recent services.</p>
-
-        <div class="split">
-          <div class="card white">
-            <h3>YouTube</h3>
-            <p>Live at 8:00 AM and also used for the 10:30 AM service.</p>
-            <a class="btn primary" href="https://www.youtube.com/@newcreationcommunitychurch4561" target="_blank" rel="noreferrer">Open YouTube</a>
+      <section id="events" class="card" aria-label="Events">
+        <div class="hd">
+          <h2>Events</h2>
+          <span class="tag">Calendar-ready</span>
+        </div>
+        <div class="bd twoCol">
+          <div>
+            <p class="muted">Recommended: a single calendar source of truth (Google Calendar). This section is ready for an embed.</p>
+            <div class="infoBox">
+              <div class="row">
+                <div><strong>[MMM DD]</strong> — [Event Name]</div>
+                <div class="muted">[One line description]</div>
+                <a class="btn" href="#contact">Details</a>
+              </div>
+            </div>
+            <div style="height:10px;"></div>
+            <div class="infoBox">
+              <div class="row">
+                <div><strong>[MMM DD]</strong> — [Event Name]</div>
+                <div class="muted">[One line description]</div>
+                <a class="btn" href="#contact">Details</a>
+              </div>
+            </div>
+            <p class="formNote">When you get the church’s Google Calendar ID, replace this list with a live embed.</p>
           </div>
-          <div class="card white">
-            <h3>Facebook</h3>
-            <p>Live for the 10:30 AM contemporary service.</p>
-            <a class="btn primary" href="https://www.facebook.com/profile.php?id=100064726481440" target="_blank" rel="noreferrer">Open Facebook</a>
+
+          <div class="infoBox">
+            <div class="row">
+              <div><strong>Tip</strong></div>
+              <div class="muted">If you want, I can wire the Google Calendar embed so you never manually update this section again.</div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- GIVE -->
-    <section class="section" id="give">
-      <div class="container">
-        <h2>Give</h2>
-        <p>Your generosity supports the mission and ministries of New Creation.</p>
-
-        <div class="split">
-          <div class="card white">
-            <h3>Give online</h3>
-            <p>One direct button to giving.</p>
-            <a class="btn primary" href="https://paypal.me/nccc3005" target="_blank" rel="noreferrer">Give Online</a>
-            <div class="note">If the giving provider changes, this stays a one-link update.</div>
+      <section id="watch" class="card" aria-label="Watch Online">
+        <div class="hd">
+          <h2>Watch Online</h2>
+          <span class="tag">Live & recent</span>
+        </div>
+        <div class="bd twoCol">
+          <div class="infoBox">
+            <div class="row">
+              <div><strong>YouTube</strong></div>
+              <div class="muted">Live at 8:00 AM and also used for the 10:30 AM service.</div>
+              <a class="btn primary" href="https://www.youtube.com/" target="_blank" rel="noopener">Open YouTube</a>
+            </div>
           </div>
-          <div class="card white">
-            <h3>Other ways to give</h3>
-            <ul class="list">
-              <li>In-person during service.</li>
-              <li>Questions: newcreation25@comcast.net or 717-764-0252.</li>
-            </ul>
-            <div class="note">Only include non-cash gift options if process is verified and owned by a responsible contact.</div>
+          <div class="infoBox">
+            <div class="row">
+              <div><strong>Facebook</strong></div>
+              <div class="muted">Live for the 10:30 AM contemporary service.</div>
+              <a class="btn primary" href="https://www.facebook.com/" target="_blank" rel="noopener">Open Facebook</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <div class="container">
-        <h2>Contact</h2>
-        <p>Questions or prayer requests? Reach out and we will respond.</p>
-
-        <div class="split">
-          <div class="card white">
-            <h3>Church office</h3>
-            <ul class="list">
-              <li><strong>Phone</strong>: 717-764-0252</li>
-              <li><strong>Email</strong>: newcreation25@comcast.net</li>
-              <li><strong>Address</strong>: 3005 Emig Mill Road, Dover PA 17315</li>
-            </ul>
+      <section id="give" class="card" aria-label="Give">
+        <div class="hd">
+          <h2>Give</h2>
+          <span class="tag">One-link update</span>
+        </div>
+        <div class="bd twoCol">
+          <div>
+            <p class="muted">Your generosity supports the mission and ministries of New Creation.</p>
+            <div class="actions">
+              <a class="btn primary" href="https://paypal.me/" target="_blank" rel="noopener">Give Online</a>
+            </div>
+            <p class="formNote">If the giving provider changes, this stays a one-link update.</p>
           </div>
+          <div class="infoBox">
+            <div class="row">
+              <div><strong>Other ways to give</strong></div>
+              <div class="muted">In-person during service.</div>
+              <div class="muted">Questions: <a href="mailto:newcreation25@comcast.net">newcreation25@comcast.net</a> or <a href="tel:17177640252">717-764-0252</a>.</div>
+              <div class="muted">Only include non-cash gift options if process is verified and owned by a responsible contact.</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div class="card white">
-            <h3>Quick message</h3>
-            <p class="meta">This is a placeholder. If you want it to send, we switch it to Formspree in one line.</p>
-            <form class="form" onsubmit="return false;">
-              <label>Name<br/><input name="name" placeholder="Your name" /></label><br/><br/>
-              <label>Email<br/><input name="email" type="email" placeholder="you@example.com" /></label><br/><br/>
-              <label>Message<br/><textarea name="msg" rows="5" placeholder="How can we help?"></textarea></label><br/><br/>
+      <section id="contact" class="card" aria-label="Contact">
+        <div class="hd">
+          <h2>Contact</h2>
+          <span class="tag">Questions or prayer requests</span>
+        </div>
+        <div class="bd twoCol">
+          <div>
+            <p class="muted">Questions or prayer requests? Reach out and we will respond.</p>
+
+            <div class="infoBox">
+              <div class="row">
+                <div><strong>Church office</strong></div>
+                <div class="muted">Phone: <a href="tel:17177640252">717-764-0252</a></div>
+                <div class="muted">Email: <a href="mailto:newcreation25@comcast.net">newcreation25@comcast.net</a></div>
+                <div class="muted">Address: 3005 Emig Mill Road, Dover PA 17315</div>
+              </div>
+            </div>
+
+            <p class="muted" style="margin-top:12px;"><strong>Quick message</strong></p>
+            <form action="#" method="post" onsubmit="return false;">
+              <div>
+                <label for="cName">Name</label>
+                <input id="cName" name="name" autocomplete="name" placeholder="Your name" />
+              </div>
+              <div>
+                <label for="cEmail">Email</label>
+                <input id="cEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+              </div>
+              <div>
+                <label for="cMsg">Message</label>
+                <textarea id="cMsg" name="message" placeholder="How can we help?"></textarea>
+              </div>
               <button class="btn primary" type="submit">Send</button>
-              <div class="note">For now: call 717-764-0252 or email newcreation25@comcast.net.</div>
+              <div class="formNote">This is a placeholder. If you want it to send, we switch it to Formspree in one line.</div>
             </form>
           </div>
+
+          <div class="infoBox">
+            <div class="row">
+              <div><strong>For now</strong></div>
+              <div class="muted">Call <a href="tel:17177640252">717-764-0252</a> or email <a href="mailto:newcreation25@comcast.net">newcreation25@comcast.net</a>.</div>
+              <div class="muted">If you want, I can add a real “Get Directions” button and wire the forms to deliver to email.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <footer>
+      <div class="wrap">
+        <div class="footGrid">
+          <div>
+            <p class="footTitle">
+              <img id="footLogo" src="./assets/logo.png" alt="New Creation Community Church logo" />
+              New Creation Community Church
+            </p>
+            <div class="small">3005 Emig Mill Road, Dover PA 17315</div>
+            <div class="small">8:00 AM Traditional · 9:15 AM Sunday School · 10:30 AM Contemporary</div>
+            <div class="small">Phone: 717-764-0252 · Email: newcreation25@comcast.net</div>
+          </div>
+
+          <div class="footLinks" aria-label="Quick links">
+            <div class="small" style="margin:0; color:rgba(255,255,255,.90); font-weight:900;">Quick links</div>
+            <a href="#visit">Plan a Visit</a>
+            <a href="#ministries">Ministries</a>
+            <a href="#watch">Watch</a>
+            <a href="#give">Give</a>
+            <div class="small" style="margin-top:6px; color:rgba(255,255,255,.90); font-weight:900;">Online</div>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+          </div>
+        </div>
+
+        <div class="small" style="margin-top:18px; opacity:.75;">
+          © <span id="year"></span> New Creation Community Church
         </div>
       </div>
-    </section>
-
+    </footer>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <img src="/logo.png" alt="Denominational logo" class="denom-logo footer-logo" />
-          <strong>New Creation Community Church</strong><br/>
-          <small>3005 Emig Mill Road, Dover PA 17315</small><br/>
-          <div class="pill-row" style="margin-top:8px">
-            <span class="pill">8:00 AM Traditional</span>
-            <span class="pill">9:15 AM Sunday School</span>
-            <span class="pill">10:30 AM Contemporary</span>
-          </div>
-          <div class="note">Phone: 717-764-0252 • Email: newcreation25@comcast.net</div>
-        </div>
-
-        <div>
-          <strong>Quick links</strong><br/>
-          <small><a href="#plan">Plan a Visit</a></small><br/>
-          <small><a href="#ministries">Ministries</a></small><br/>
-          <small><a href="#watch">Watch</a></small><br/>
-          <small><a href="#give">Give</a></small><br/>
-        </div>
-
-        <div>
-          <strong>Online</strong><br/>
-          <small><a href="https://www.youtube.com/@newcreationcommunitychurch4561" target="_blank" rel="noreferrer">YouTube</a></small><br/>
-          <small><a href="https://www.facebook.com/profile.php?id=100064726481440" target="_blank" rel="noreferrer">Facebook</a></small><br/>
-        </div>
-      </div>
-
-      <div style="margin-top:14px">
-        <small>© New Creation Community Church</small>
-      </div>
-    </div>
-  </footer>
-
   <script>
-    (function(){
-      const btn = document.querySelector('[data-toggle]');
-      const drawer = document.querySelector('[data-drawer]');
-      if(btn && drawer){
-        btn.addEventListener('click', () => {
-          drawer.classList.toggle('show');
-          const expanded = btn.getAttribute('aria-expanded') === 'true';
-          btn.setAttribute('aria-expanded', String(!expanded));
+    // Mobile menu
+    (function () {
+      var btn = document.getElementById('menuBtn');
+      var links = document.getElementById('navlinks');
+      if (!btn || !links) return;
+
+      btn.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      // Close menu on link click (mobile)
+      links.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          links.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
         });
-      }
-      if(drawer){
-        drawer.addEventListener('click', (e) => {
-          const t = e.target;
-          if(t && t.tagName === 'A'){
-            drawer.classList.remove('show');
-            btn && btn.setAttribute('aria-expanded','false');
-          }
-        });
-      }
+      });
     })();
+
+    // Logo fallback: if image missing, hide it so you don't see broken icons.
+    (function () {
+      function handle(imgId) {
+        var img = document.getElementById(imgId);
+        if (!img) return;
+        img.addEventListener('error', function () {
+          img.style.display = 'none';
+        });
+      }
+      handle('brandLogo');
+      handle('footLogo');
+    })();
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
