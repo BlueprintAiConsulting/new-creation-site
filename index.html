@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>New Creation Community Church</title>
+  <meta name="description" content="Service times, location, ministries, events, watch online, and giving for New Creation Community Church in Dover, PA." />
+  <meta name="theme-color" content="#ffffff" />
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111111;
+      --muted:#444444;
+      --border:#e6e6e6;
+      --card:#fafafa;
+      --shadow: 0 10px 30px rgba(0,0,0,0.06);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --maxw: 1100px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.45;
+    }
+    a{color:inherit}
+    .container{width:min(var(--maxw), calc(100% - 40px)); margin:0 auto;}
+
+    .skip-link{
+      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip-link:focus{
+      left:10px; top:10px; width:auto; height:auto;
+      padding:10px 12px; background:#fff; border:1px solid #000; z-index:9999;
+    }
+
+    header{
+      position:sticky; top:0; z-index:50;
+      background:rgba(255,255,255,0.92);
+      border-bottom:1px solid var(--border);
+      backdrop-filter:saturate(180%) blur(10px);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:10px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none;
+      min-width: 210px;
+    }
+    .logo-mark{
+      width:38px; height:38px;
+      border:2px solid #000;
+      border-radius:10px;
+      display:grid; place-items:center;
+      font-weight:900;
+      font-size:14px;
+      line-height:1;
+    }
+    .brand-text{display:flex; flex-direction:column}
+    .brand-text strong{font-size:14px; letter-spacing:0.2px}
+    .brand-text span{font-size:12px; color:var(--muted)}
+
+    nav.links{display:flex; align-items:center; gap:10px}
+    nav.links a{
+      text-decoration:none;
+      font-size:13.5px;
+      padding:8px 10px;
+      border-radius:10px;
+      white-space:nowrap;
+    }
+    nav.links a:hover{background:var(--card)}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid #000;
+      text-decoration:none;
+      font-weight:700;
+      font-size:13.5px;
+      cursor:pointer;
+      background:transparent;
+      gap:8px;
+    }
+    .btn.primary{background:#000; color:#fff;}
+    .btn.small{padding:8px 12px; font-size:13px}
+    .btn:hover{transform: translateY(-1px)}
+    .btn:active{transform:none}
+
+    .mobile-toggle{
+      display:none;
+      border:1px solid #000;
+      background:transparent;
+      border-radius:10px;
+      padding:8px 10px;
+      font-weight:800;
+    }
+    .drawer{
+      display:none;
+      border-top:1px solid var(--border);
+      padding:10px 0 14px 0;
+    }
+    .drawer a{
+      display:block;
+      padding:10px 0;
+      text-decoration:none;
+      border-bottom:1px solid var(--border);
+    }
+    .drawer a:last-child{border-bottom:none}
+    .drawer .btn{width:100%; margin-top:10px}
+    .drawer.show{display:block}
+
+    .hero{padding:54px 0 26px 0;}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:28px;
+      align-items:start;
+    }
+    .kicker{
+      font-size:12px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+    }
+    h1{
+      margin:10px 0 10px 0;
+      font-size:40px;
+      line-height:1.12;
+    }
+    .lead{
+      font-size:16px;
+      color:var(--muted);
+      max-width:60ch;
+    }
+    .actions{
+      display:flex;
+      gap:12px;
+      margin-top:18px;
+      flex-wrap:wrap;
+    }
+
+    .card{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:16px;
+      background:var(--card);
+      box-shadow: var(--shadow);
+    }
+    .card.white{
+      background:#fff;
+    }
+    .card h3{margin:0 0 8px 0; font-size:16px}
+    .meta{font-size:12.5px; color:var(--muted); margin-bottom:12px}
+    .divider{height:1px; background:var(--border); margin:10px 0}
+    .note{font-size:12px; color:var(--muted); margin-top:10px}
+
+    .section{
+      padding:40px 0;
+      border-top:1px solid var(--border);
+    }
+    .section h2{margin:0 0 10px 0; font-size:22px}
+    .section p{margin:0 0 10px 0; color:var(--muted)}
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    .list{
+      margin:10px 0 0 0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+    .list li{margin:6px 0}
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:12px;
+    }
+
+    .events{
+      display:grid;
+      gap:10px;
+      margin-top:12px;
+    }
+    .event{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:14px;
+      background:#fff;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      box-shadow: var(--shadow);
+    }
+    .event .left{display:flex; flex-direction:column; gap:3px;}
+    .event .date{font-weight:900;}
+    .event .desc{color:var(--muted); font-size:13px;}
+
+    .pill-row{margin-top:10px}
+    .pill{
+      display:inline-block;
+      font-size:12px;
+      border:1px solid var(--border);
+      padding:6px 10px;
+      border-radius:999px;
+      background:#fff;
+      margin-right:8px;
+      margin-top:6px;
+      color:var(--muted);
+    }
+
+    footer{
+      padding:26px 0 40px 0;
+      border-top:1px solid var(--border);
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.3fr 0.7fr 0.7fr;
+      gap:16px;
+    }
+    footer small{color:var(--muted)}
+    footer a{text-decoration:none}
+    footer a:hover{text-decoration:underline}
+
+    .form input, .form textarea{
+      width:100%;
+      padding:10px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      font: inherit;
+      background:#fff;
+    }
+    .form textarea{resize:vertical}
+
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      h1{font-size:34px}
+    }
+    @media (max-width: 760px){
+      nav.links{display:none}
+      .mobile-toggle{display:inline-flex}
+      .brand{min-width: unset}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="container">
+      <div class="nav" role="navigation" aria-label="Primary">
+        <a class="brand" href="#top">
+          <div class="logo-mark" aria-hidden="true">NC</div>
+          <div class="brand-text">
+            <strong>New Creation</strong>
+            <span>Community Church</span>
+          </div>
+        </a>
+
+        <nav class="links" aria-label="Site">
+          <a href="#plan">Plan a Visit</a>
+          <a href="#ministries">Ministries</a>
+          <a href="#events">Events</a>
+          <a href="#watch">Watch</a>
+          <a href="#give">Give</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div>
+          <a class="btn primary" href="#plan">Plan a Visit</a>
+          <button class="mobile-toggle" type="button" data-toggle aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="drawer" data-drawer>
+        <a href="#plan">Plan a Visit</a>
+        <a href="#ministries">Ministries</a>
+        <a href="#events">Events</a>
+        <a href="#watch">Watch</a>
+        <a href="#give">Give</a>
+        <a href="#contact">Contact</a>
+        <a class="btn primary" href="#plan">Plan a Visit</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div id="top"></div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="kicker">Welcome</div>
+            <h1>New Creation Community Church</h1>
+            <p class="lead">
+              Join us this Sunday. Traditional service at <strong>8:00 AM</strong> and contemporary service at <strong>10:30 AM</strong>.
+              Sunday School at <strong>9:15 AM</strong> for adults and children.
+              We are located at <strong>3005 Emig Mill Road, Dover PA 17315</strong>.
+            </p>
+
+            <div class="pill-row" aria-label="Highlights">
+              <span class="pill">GriefShare</span>
+              <span class="pill">Men’s Alliance</span>
+              <span class="pill">Worship Sundays</span>
+              <span class="pill">Watch Online</span>
+            </div>
+
+            <div class="actions">
+              <a class="btn primary" href="#plan">Plan a Visit</a>
+              <a class="btn" href="#watch">Watch Online</a>
+              <a class="btn" href="#give">Give</a>
+            </div>
+          </div>
+
+          <aside class="card white" aria-label="Quick details">
+            <h3>Service times</h3>
+            <div class="meta"><strong>8:00 AM</strong> Traditional</div>
+            <div class="meta"><strong>9:15 AM</strong> Sunday School (adults and children)</div>
+            <div class="meta"><strong>10:30 AM</strong> Contemporary</div>
+            <div class="divider"></div>
+
+            <h3 style="margin-top:0">Contact</h3>
+            <div class="meta"><strong>Phone</strong>: 717-764-0252</div>
+            <div class="meta"><strong>Email</strong>: newcreation25@comcast.net</div>
+            <div class="meta"><strong>Address</strong>: 3005 Emig Mill Road, Dover PA 17315</div>
+            <div class="divider"></div>
+
+            <a class="btn primary" href="#plan">Let us know you’re coming</a>
+            <div class="note">Streaming: YouTube (8:00 AM) and YouTube + Facebook (10:30 AM).</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT TO EXPECT -->
+    <section class="section" id="expect">
+      <div class="container">
+        <h2>What to expect</h2>
+        <p>Clear, simple, and welcoming. If it’s your first time, you’re invited and you’ll know exactly where to go.</p>
+
+        <div class="grid-3">
+          <div class="card white">
+            <h3>Arrive</h3>
+            <p>Park on-site and come through the main entrance. Dress is casual.</p>
+          </div>
+          <div class="card white">
+            <h3>Worship</h3>
+            <p>Traditional service at 8:00 AM and contemporary service at 10:30 AM.</p>
+          </div>
+          <div class="card white">
+            <h3>Connect</h3>
+            <p>Support ministries, groups, and opportunities to serve the community.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAN A VISIT -->
+    <section class="section" id="plan">
+      <div class="container">
+        <h2>Plan a Visit</h2>
+        <p>If you’d like, send a quick message and someone will follow up with directions and details.</p>
+
+        <div class="split">
+          <div class="card white">
+            <h3>Location</h3>
+            <p><strong>3005 Emig Mill Road, Dover PA 17315</strong></p>
+
+            <div style="position:relative; height:320px; border:1px solid var(--border); border-radius:14px; overflow:hidden; background:#fff">
+              <iframe
+                title="Map"
+                style="width:100%; height:100%; border:0"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=3005%20Emig%20Mill%20Road%20Dover%20PA%2017315&output=embed"></iframe>
+            </div>
+
+            <div class="note">If you want a “Get Directions” button, we can add it.</div>
+          </div>
+
+          <div class="card white">
+            <h3>Message us</h3>
+            <p class="meta">Working form is optional. This version is safe and self-contained.</p>
+
+            <div class="note" style="margin-top:0">
+              Call: <strong>717-764-0252</strong><br/>
+              Email: <strong>newcreation25@comcast.net</strong>
+            </div>
+
+            <div class="divider"></div>
+
+            <form class="form" onsubmit="return false;">
+              <label>Name<br/><input name="name" placeholder="Your name" /></label><br/><br/>
+              <label>Email<br/><input name="email" type="email" placeholder="you@example.com" /></label><br/><br/>
+              <label>Question (optional)<br/><textarea name="q" rows="4" placeholder="Anything you’d like to ask?"></textarea></label><br/><br/>
+              <button class="btn primary" type="submit">Submit</button>
+              <div class="note">This is a placeholder. If you want it to send, swap in Formspree in one line.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MINISTRIES -->
+    <section class="section" id="ministries">
+      <div class="container">
+        <h2>Ministries</h2>
+        <p>Key ministries we want to highlight clearly, with simple calls to action.</p>
+
+        <div class="split">
+          <div class="card white">
+            <h3>GriefShare</h3>
+            <p>Support and encouragement for those walking through loss.</p>
+            <div class="meta"><strong>Typical format</strong>: 13-week sessions • <strong>Thursdays</strong> 3:30–5:00 PM • <strong>Cost</strong>: $20 (scholarships available)</div>
+            <a class="btn primary" href="#contact">Request info</a>
+          </div>
+
+          <div class="card white">
+            <h3>DivorceCare</h3>
+            <p>A Christ-centered program for those experiencing separation or divorce.</p>
+            <div class="meta"><strong>Status</strong>: Not currently offered (we can help you find a nearby group).</div>
+            <a class="btn primary" href="https://www.divorcecare.org/" target="_blank" rel="noreferrer">Find a group</a>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="card white">
+          <h3>Men’s Alliance</h3>
+          <p>Brotherhood, growth, and accountability in a welcoming group.</p>
+          <div class="meta"><strong>Meets</strong>: Tuesdays at 6:30 PM • Outdoor workout + devotional</div>
+          <a class="btn primary" href="#contact">Join us</a>
+        </div>
+
+        <div class="note">
+          Next iteration: add a “Serve” section and a simple “Newsletter Signup” (replacing PDF-first newsletters).
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section class="section" id="events">
+      <div class="container">
+        <h2>Events</h2>
+        <p>Recommended: a single calendar source of truth (Google Calendar). This section is ready for an embed.</p>
+
+        <div class="events">
+          <div class="event">
+            <div class="left">
+              <div class="date">[MMM DD]</div>
+              <div class="name">[Event Name]</div>
+              <div class="desc">[One line description]</div>
+            </div>
+            <div><a class="btn small" href="#contact">Details</a></div>
+          </div>
+          <div class="event">
+            <div class="left">
+              <div class="date">[MMM DD]</div>
+              <div class="name">[Event Name]</div>
+              <div class="desc">[One line description]</div>
+            </div>
+            <div><a class="btn small" href="#contact">Details</a></div>
+          </div>
+        </div>
+
+        <div class="note">When you get the church’s Google Calendar ID, replace this list with a live embed.</div>
+      </div>
+    </section>
+
+    <!-- WATCH -->
+    <section class="section" id="watch">
+      <div class="container">
+        <h2>Watch Online</h2>
+        <p>Join live or watch recent services.</p>
+
+        <div class="split">
+          <div class="card white">
+            <h3>YouTube</h3>
+            <p>Live at 8:00 AM and also used for the 10:30 AM service.</p>
+            <a class="btn primary" href="https://www.youtube.com/@newcreationcommunitychurch4561" target="_blank" rel="noreferrer">Open YouTube</a>
+          </div>
+          <div class="card white">
+            <h3>Facebook</h3>
+            <p>Live for the 10:30 AM contemporary service.</p>
+            <a class="btn primary" href="https://www.facebook.com/profile.php?id=100064726481440" target="_blank" rel="noreferrer">Open Facebook</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GIVE -->
+    <section class="section" id="give">
+      <div class="container">
+        <h2>Give</h2>
+        <p>Your generosity supports the mission and ministries of New Creation.</p>
+
+        <div class="split">
+          <div class="card white">
+            <h3>Give online</h3>
+            <p>One direct button to giving.</p>
+            <a class="btn primary" href="https://paypal.me/nccc3005" target="_blank" rel="noreferrer">Give Online</a>
+            <div class="note">If the giving provider changes, this stays a one-link update.</div>
+          </div>
+          <div class="card white">
+            <h3>Other ways to give</h3>
+            <ul class="list">
+              <li>In-person during service.</li>
+              <li>Questions: newcreation25@comcast.net or 717-764-0252.</li>
+            </ul>
+            <div class="note">Only include non-cash gift options if process is verified and owned by a responsible contact.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>Questions or prayer requests? Reach out and we will respond.</p>
+
+        <div class="split">
+          <div class="card white">
+            <h3>Church office</h3>
+            <ul class="list">
+              <li><strong>Phone</strong>: 717-764-0252</li>
+              <li><strong>Email</strong>: newcreation25@comcast.net</li>
+              <li><strong>Address</strong>: 3005 Emig Mill Road, Dover PA 17315</li>
+            </ul>
+          </div>
+
+          <div class="card white">
+            <h3>Quick message</h3>
+            <p class="meta">This is a placeholder. If you want it to send, we switch it to Formspree in one line.</p>
+            <form class="form" onsubmit="return false;">
+              <label>Name<br/><input name="name" placeholder="Your name" /></label><br/><br/>
+              <label>Email<br/><input name="email" type="email" placeholder="you@example.com" /></label><br/><br/>
+              <label>Message<br/><textarea name="msg" rows="5" placeholder="How can we help?"></textarea></label><br/><br/>
+              <button class="btn primary" type="submit">Send</button>
+              <div class="note">For now: call 717-764-0252 or email newcreation25@comcast.net.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong>New Creation Community Church</strong><br/>
+          <small>3005 Emig Mill Road, Dover PA 17315</small><br/>
+          <div class="pill-row" style="margin-top:8px">
+            <span class="pill">8:00 AM Traditional</span>
+            <span class="pill">9:15 AM Sunday School</span>
+            <span class="pill">10:30 AM Contemporary</span>
+          </div>
+          <div class="note">Phone: 717-764-0252 • Email: newcreation25@comcast.net</div>
+        </div>
+
+        <div>
+          <strong>Quick links</strong><br/>
+          <small><a href="#plan">Plan a Visit</a></small><br/>
+          <small><a href="#ministries">Ministries</a></small><br/>
+          <small><a href="#watch">Watch</a></small><br/>
+          <small><a href="#give">Give</a></small><br/>
+        </div>
+
+        <div>
+          <strong>Online</strong><br/>
+          <small><a href="https://www.youtube.com/@newcreationcommunitychurch4561" target="_blank" rel="noreferrer">YouTube</a></small><br/>
+          <small><a href="https://www.facebook.com/profile.php?id=100064726481440" target="_blank" rel="noreferrer">Facebook</a></small><br/>
+        </div>
+      </div>
+
+      <div style="margin-top:14px">
+        <small>© New Creation Community Church</small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const btn = document.querySelector('[data-toggle]');
+      const drawer = document.querySelector('[data-drawer]');
+      if(btn && drawer){
+        btn.addEventListener('click', () => {
+          drawer.classList.toggle('show');
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+        });
+      }
+      if(drawer){
+        drawer.addEventListener('click', (e) => {
+          const t = e.target;
+          if(t && t.tagName === 'A'){
+            drawer.classList.remove('show');
+            btn && btn.setAttribute('aria-expanded','false');
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
